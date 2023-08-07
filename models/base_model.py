@@ -7,11 +7,27 @@ from datetime import datetime
 class BaseModel:
     """Represents the BaseModel"""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Initializes a new BaseModel"""
-        self.id = str(uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
+        if kwargs:
+            for key, val in kwargs.items():
+                if key == '__class__':
+                    continue
+                elif key == 'created_at':
+                    val = datetime.strptime(val, "%Y-%m-%dT%H:%M:%S.%f")
+                elif key == 'updated_at':
+                    val = datetime.strptime(val, "%Y-%m-%dT%H:%M:%S.%f")
+                if 'created_at' not in kwargs.keys():
+                    self.created_at = datetime.now()
+                if 'updated_at' not in kwargs.keys():
+                    self.updated_at = datetime.now()
+                if 'id' not in kwargs.keys():
+                    self.id = str(uuid4())
+                setattr(self, key, val);
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.today()
+            self.updated_at = datetime.today()
 
     def __str__(self):
         """
