@@ -2,10 +2,16 @@
 """FileStorage class defined here"""
 import json
 from models.base_model import BaseModel
+from models.state import State
+from models.user import User
+from models.place import Place
+from models.city import City
+from models.review import Review
+from models.amenity import Amenity
 
 
 class FileStorage:
-    """ 
+    """
     Represents a class that serializes instances to a
     JSON FILE  to instances
     """
@@ -15,14 +21,14 @@ class FileStorage:
     def all(self):
         """For returning the dictionay onjects"""
         return FileStorage.__objects
-    
+
     def new(self, obj):
         """
         For setting in objects with key
         <obj class name>.id
         """
         obj_class_name = obj.__class__.__name__
-        key = f"{obj_class_name}.{obj.id}"
+        key = "{}.{}".format(obj_class_name, obj.id)
         FileStorage.__objects[key] = obj
 
     def save(self):

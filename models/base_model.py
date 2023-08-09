@@ -38,7 +38,8 @@ class BaseModel:
         the form [<class name>] (<self.id>) <self.__dict__>
         """
         get_classname = self.__class__.__name__
-        return f"[{get_classname}] ({self.id}) {self.__dict__}"
+        class_output = "[{}] ({}) {}".format(get_classname, self.id, self.__dict__)
+        return class_output
 
     def save(self):
         """
