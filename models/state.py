@@ -7,6 +7,6 @@ from models.base_model import BaseModel
 
 class State(BaseModel):
     """
-    Inherits from BaseModel
+    represents state class
     """
     name = ""

@@ -5,7 +5,6 @@ from datetime import datetime
 import models
 
 
-
 class BaseModel:
     """Represents the BaseModel"""
 
@@ -25,7 +24,7 @@ class BaseModel:
                     self.updated_at = datetime.now()
                 if 'id' not in kwargs.keys():
                     self.id = str(uuid4())
-                setattr(self, key, val);
+                setattr(self, key, val)
         else:
             self.id = str(uuid4())
             self.created_at = datetime.today()
@@ -38,7 +37,8 @@ class BaseModel:
         the form [<class name>] (<self.id>) <self.__dict__>
         """
         get_classname = self.__class__.__name__
-        class_output = "[{}] ({}) {}".format(get_classname, self.id, self.__dict__)
+        class_output = "[{}] ({}) {}".format(
+                get_classname, self.id, self.__dict__)
         return class_output
 
     def save(self):
