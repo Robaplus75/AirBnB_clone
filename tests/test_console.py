@@ -33,7 +33,7 @@ class TestConsole(unittest.TestCase):
         """Remove temporary file (file.json) created as a result"""
         try:
             os.remove("file.json")
-        except:
+        except FileNotFoundError:
             pass
 
     """Check for Pep8 style conformance"""
