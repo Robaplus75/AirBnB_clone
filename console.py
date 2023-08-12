@@ -15,7 +15,7 @@ from models.user import User
 from models import storage
 
 myclasses = (
-        "BaseModel", "city",
+        "BaseModel", "City",
         "User", "State", "Place",
         "Amenity", "Review"
         )
