@@ -174,7 +174,7 @@ class HBNBCommand(cmd.Cmd):
                     objtype = type(myobj.__class__.__dict__[key])
                     myobj.__dict__[key] = objtype(value)
                 else:
-                    myobj__dict__[key] = value
+                    myobj.__dict__[key] = value
         storage.save()
 
 
