@@ -176,6 +176,18 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     myobj.__dict__[key] = value
         storage.save()
+    
+    def do_count(self, line):
+        """Displays count of instance specified"""
+        if line in myclasses:
+            count = 0
+            for key, val in storage.all().items():
+                if line in key:
+                    count +=1
+            print(count)
+        else:
+            print("** class doesn't exist **")
+
 
 
 if __name__ == '__main__':
