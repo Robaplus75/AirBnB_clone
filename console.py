@@ -199,23 +199,23 @@ class HBNBCommand(cmd.Cmd):
             args = args[1].split('(')
             command = args[0]
             if command == 'all':
-                self.do_all(self, class_arg)
+                self.do_all(class_arg)
             elif command == 'count':
-                self.do_count(self, class_arg)
+                self.do_count(class_arg)
             elif command == 'show':
                 args = args[1].split(')')
                 id_arg = args[0]
                 id_arg = id_arg.strip("'")
                 id_arg = id_arg.strip('"')
                 arg = class_arg + ' ' + id_arg
-                self.do_show(self, arg)
+                self.do_show(arg)
             elif command == 'destroy':
                 args = args[1].split(')')
                 id_arg = args[0]
                 id_arg = id_arg.strip('"')
                 id_arg = id_arg.strip("'")
                 arg = class_arg + ' ' + id_arg
-                self.do_destroy(self, arg)
+                self.do_destroy(arg)
             elif command == 'update':
                 args = args[1].split(',')
                 id_arg = args[0].strip("'")
@@ -228,7 +228,7 @@ class HBNBCommand(cmd.Cmd):
                 val_arg = val_arg.strip(' ')
                 val_arg = val_arg.strip(')')
                 arg = class_arg + ' ' + id_arg + ' ' + name_arg + ' ' + val_arg
-                self.do_update(self, arg)
+                self.do_update(arg)
             else:
                 print("*** Unknown syntax: {}".format(line))
         except IndexError:
