@@ -147,7 +147,6 @@ class TestConsole(unittest.TestCase):
             self.typing.onecmd("SomeClass.show('123')")
         with patch('sys.stdout', new=StringIO()) as fake_output:
             self.typing.onecmd("User.show('123')")
-           
 
 
 if __name__ == "__main__":
